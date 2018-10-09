@@ -22,7 +22,7 @@ struct CountedSet <T: Hashable & Sequence> {
     }
     
     // SUBSCRIPT
-    mutating func subscript2 (_ element: T) -> Int {
+    subscript(_ element: T) -> Int {
         let keys = storage.map({ $0.key })
         
         if keys.contains(element) {
@@ -50,11 +50,12 @@ print(set)
 set.remove("New York")
 print(set)
 
-let value = set.subscript2("Texas")
-print(value)
+let element = "Texas"
+let value = set[element]
+print("Value of \(element) is \(value)")
 
 let count = set.count()
-print(count)
+print("Count of Storage is \(count)")
 
 
 
